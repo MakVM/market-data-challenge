@@ -40,9 +40,10 @@ I first analyzed orderbook dynamics to detect unusual events in **spread, bid/as
 - Anomaly #4 shows quote changes preceding trades → **consistent with spoofing heuristics**.  
 
 **Supporting Charts:**  
-**Figure 1:** Spread with Anomalies Detection (by z-test)
-**Figure 2:** Orderbook Depth Imbalance with Anomalies Detection (by z-test)
-**Figure 3:** Midprice with Midprice-change Anomalies Detection (by z-test)
+![Orderbook Anomalies](../charts/orderbook_anomalies.png)
+**Figure 1:** Spread,Depth Imbalance and Midprice with Anomalies Detection (by z-test)
+
+
 **Figure 4:** Trade Volume with Annotated Anomalies (10-minute window)
 **Figure 5:** Trade Count with Annotated Anomalies (10-minute window)
 **Figure 6:** Orderbook Depth Metrics with Annotated Anomalies (10-minute window)
