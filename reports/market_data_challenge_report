@@ -25,7 +25,7 @@ A three-day ETH/BTC market sample was analyzed to identify suspicious or manipul
 
 I first analyzed orderbook dynamics to detect unusual events in **spread, bid/ask imbalance and midprice**. I conducted preliminary visual analysis as well as quantitative z-test assessement to select top 5 anomaly points. In order to identify wether they were backed by real volume movement I merged orderbooks data with real trading records.
 
-| Anomaly # | Timestamp (UTC) | Feature(s) | Depth | Trade Volume Context | Heuristic Alignment | Suspicion |
+| Anomaly # | Timestamp (UTC) | Features | Depth | Trade Volume Context | Heuristic Alignment | Suspicion |
 |-----------|----------------|------------|-------|-------------------|------------------|-----------|
 | 1 | 2025-09-01 12:05 | Spread drop & midprice change drop | Thin | Moderate | None | Low |
 | 2 | 2025-09-01 16:03 | Midprice drop & spread spike | Thin | Minimal |  None | Low |
@@ -80,7 +80,7 @@ Next, I aggregated trade data to detect broader suspicious trading behaviors.
 ### 3.3 Buy/Sell Imbalance (Trade Flow)
 
 - **Method:** `(buy_volume - sell_volume)/(buy_volume + sell_volume)` per minute  
-- **Findings:** Persistent buy-side dominance (96% of time on buy-side domination) with occasional dips coinciding with orderbook anomalies #2 and #3.  
+- **Findings:** Persistent buy-side dominance (96% of time on buy-side dominance) with occasional dips coinciding with orderbook anomalies #2 and #3.  
 
 **Chart:** `imbalance_plot.png`  
 **Figure 8:** Buy/Sell Imbalance with Orderbook Anomalies (black dotted lines)
