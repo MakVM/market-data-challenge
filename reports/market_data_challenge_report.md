@@ -41,12 +41,11 @@ I first analyzed orderbook dynamics to detect unusual events in **spread, bid/as
 
 **Supporting Charts:**  
 ![Orderbook Anomalies](../charts/orderbook_anomalies.png)
-**Figure 1:** Spread,Depth Imbalance and Midprice with Anomalies Detection (by z-test)
+**Figure 1:** Spread, Depth Imbalance and Midprice with Anomalies Detection (by z-test)
 
 
-**Figure 4:** Trade Volume with Annotated Anomalies (10-minute window)
-**Figure 5:** Trade Count with Annotated Anomalies (10-minute window)
-**Figure 6:** Orderbook Depth Metrics with Annotated Anomalies (10-minute window)
+![Trade and Orderbook Depth Metrics Context](../charts/trade_depth_context.png)
+**Figure 2:** Trade Volume, Count and Orderbook Depth Metrics with Annotated Anomalies (10-minute window)
 
 ---
 
@@ -59,8 +58,9 @@ Next, I aggregated trade data to detect broader suspicious trading behaviors.
 - **Method:** Rolling z-score of minute-level trade volume (>2σ flagged).  
 - **Findings:** Multiple abnormal volume spikes; only Anomaly #2 coincides with a spike.  
 
-**Chart:** `volume_spikes.png`  
-**Figure 6:** Volume Spikes with Overlayed Orderbook Anomalies
+**Chart:** 
+![Trade Volume Spikes](../charts/volume_spikes.png)
+**Figure 3:** Volume Spikes with Overlayed Orderbook Anomalies
 
 **Interpretation:** Only some spikes align with micro anomalies; others appear as normal market reactions.
 
@@ -71,8 +71,9 @@ Next, I aggregated trade data to detect broader suspicious trading behaviors.
 - **Method:** Minute-level returns >3σ identified as pumps/dumps.  
 - **Findings:** 4 pump and 6 dump events detected. One pump&dump event aligns with trading volume spike and anomaly #2.  
 
-**Chart:** `pump_dump_overlay.png`  
-**Figure 7:** Volume Spikes with Pump/Dump Detection and Anomalies (black dotted lines)
+**Chart:** 
+![Trade Volume Spikes with Pump/Dump Detection](../charts/volume_spikes_pumpdump.png)
+**Figure 4:** Volume Spikes with Pump/Dump Detection and Anomalies (black dotted lines)
 
 **Interpretation:** The sequence of events — orderbook irregularity → volume spike → rapid price movement — is consistent with potential manipulative behavior: spoofing or liquidity pull-back. Abrupt changes in quotes may have signaled or triggered aggressive trading. Some rapid price changes also occur independently of detected anomalies.
 
@@ -83,8 +84,9 @@ Next, I aggregated trade data to detect broader suspicious trading behaviors.
 - **Method:** `(buy_volume - sell_volume)/(buy_volume + sell_volume)` per minute  
 - **Findings:** Persistent buy-side dominance (96% of time on buy-side dominance) with occasional dips coinciding with orderbook anomalies #2 and #3.  
 
-**Chart:** `imbalance_plot.png`  
-**Figure 8:** Buy/Sell Imbalance with Orderbook Anomalies (black dotted lines)
+**Chart:** 
+![Buy/Sell Imbalance](../charts/buy_sell_imbalance.png)
+**Figure 5:** Buy/Sell Imbalance with Orderbook Anomalies (black dotted lines)
 
 **Interpretation:** The overall persistent buy-side dominance suggests an accumulation phase or sustained bullish activity — possibly coordinated buying behavior. The rare negative imbalance events reflect short bursts of sell-side aggression, possibly marking localized profit-taking or dump events. The trade flow imbalance is heavily skewed toward buyers, punctuated by brief sell-side reversals that coincide with certain orderbook anomalies. This pattern may reflect a coordinated accumulation followed by tactical sell bursts — a possible precursor or microstructure footprint of pump-and-dump dynamics.
 
@@ -95,8 +97,9 @@ Next, I aggregated trade data to detect broader suspicious trading behaviors.
 - **Method:** Detect sequences of buy/sell flips <5s apart.  
 - **Findings:** Minimal alternating trades; no evidence of wash trading; alternation frequency <5% of all trades; trade sizes variable and not time-clustered.
 
-**Chart:** `wash_trading.png`  
-**Figure 9:** Wash Trading Patterns
+**Chart:** 
+![Wash Trading Patterns](../charts/wash_trading.png)
+**Figure 6:** Wash Trading Patterns
 
 **Interpretation:** Low confidence / no evidence of wash trading in the dataset.
 
