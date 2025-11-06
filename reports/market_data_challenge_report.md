@@ -30,7 +30,7 @@ I first analyzed orderbook dynamics to detect unusual events in **spread, bid/as
 | 1 | 2025-09-01 12:05 | Spread drop & midprice change drop | Thin | Moderate | None | Low |
 | 2 | 2025-09-01 16:03 | Midprice drop & spread spike | Thin | Minimal |  None | Low |
 | 3 | 2025-09-01 20:55 | Midprice drop & spread spike | Thin | Moderate | Pump/Dump | Moderate
-| 4 | 2025-09-02 13:04 | Spread drop & midprice midprice change drop & imbalance spike | Thin | High | Spoofing / orderbook manipulation | Moderate |
+| 4 | 2025-09-02 13:04 | Spread drop & midprice change drop & imbalance spike | Thin | High | Spoofing / orderbook manipulation | Moderate |
 | 5 | 2025-09-03 16:33 | High ask depth & imbalance | High | High | Large sell execution / Market Reaction | Moderate |
 
 **Key Insights:**
@@ -75,7 +75,7 @@ Next, I aggregated trade data to detect broader suspicious trading behaviors.
 ![Trade Volume Spikes with Pump/Dump Detection](../charts/volume_spikes_pumpdump.png)
 **Figure 4:** Volume Spikes with Pump/Dump Detection and Anomalies (black dotted lines)
 
-**Interpretation:** The sequence of events — orderbook irregularity → volume spike → rapid price movement — is consistent with potential manipulative behavior: spoofing or liquidity pull-back. Abrupt changes in quotes may have signaled or triggered aggressive trading. Some rapid price changes also occur independently of detected anomalies.
+**Interpretation:** While Anomaly #2 initially appeared benign in the orderbook alone, its alignment with macro-level volume and price movement increased its suspicion level. The sequence of events — orderbook irregularity → volume spike → rapid price movement — is consistent with potential manipulative behavior: spoofing or liquidity pull-back. Abrupt changes in quotes may have signaled or triggered aggressive trading. Some rapid price changes also occur independently of detected anomalies.
 
 ---
 
